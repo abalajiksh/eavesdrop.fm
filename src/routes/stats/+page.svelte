@@ -11,19 +11,12 @@
 	{#if browser}
 		<p>
 			Anonymous, privacy-conscious site statistics provided by
-			<a href="https://plausible.io">Plausible</a>.
+			<a href="https://www.cloudflare.com/web-analytics/">Cloudflare Web Analytics</a>.
 		</p>
-		<iframe
-			title="Plausible Analytics for eavesdrop.fm"
-			plausible-embed
-			src="https://plausible.io/share/eavesdrop.fm?auth=d-1qGtC2HIWr96k7gkmnL&goal=listen&embed=true&theme=system&background=transparent"
-			scrolling="no"
-			frameborder="0"
-			loading="lazy"
-			style="width: 1px; min-width: 100%; height: 1600px;"
-		/>
-		<script async src="https://plausible.io/js/embed.host.js"></script>
+		<p>
+			This site uses Cloudflare's privacy-first analytics that respects user privacy without cookies or tracking.
+		</p>
 	{:else}
-		<p>The stats page currently doesn't work without JavaScript, sorry!</p>
+		<p>The stats page is powered by Cloudflare Web Analytics.</p>
 	{/if}
 </SecondaryPage>
