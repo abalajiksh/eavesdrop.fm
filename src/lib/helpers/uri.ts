@@ -1,7 +1,7 @@
 import type State from '$lib/typing/state';
 
 const uri = (state: State): URL => {
-	const uri = new URL('https://eavesdrop.fm/');
+	const uri = new URL('https://fm.maevenightshade.app/');
 
 	state.token ? uri.searchParams.append('token', state.token) : null;
 
