@@ -1,25 +1,31 @@
 import type Params from '$lib/typing/params';
 import statusCheck from './statusCheck';
 
-const userIsValid = (params: Params, baseUrl: string): boolean => {
+const userIsValid = async (params: Params, baseUrl: string): Promise<boolean> => {
 	try {
 		// check with ListenBrainz that the provided token is valid
-		fetch(`${baseUrl}/validate-token`, {
+		const response = await fetch(`${baseUrl}/validate-token`, {
 			headers: {
 				Authorization: `Token ${params.token}`
 			}
-		})
-			.then(statusCheck)
-			.then((r) => r.json())
-			.then((r) => {
-				if (r.valid) return true;
-			})
-			.catch((e) => {
-				throw new Error(e);
-			});
+		});
 
-		return true;
+		await statusCheck(response);
+		const data = await response.json();
+
+		if (data.valid && data.user_name) {
+			// Optionally verify the username matches
+			if (params.userName && data.user_name.toLowerCase() !== params.userName.toLowerCase()) {
+				console.error('Username mismatch:', data.user_name, 'vs', params.userName);
+				return false;
+			}
+			return true;
+		}
+
+		console.error('Invalid token response:', data);
+		return false;
 	} catch (e) {
+		console.error('Token validation error:', e);
 		return false;
 	}
 };
