@@ -10,8 +10,8 @@ const generateListenbrainzBody = (body: Payload) => {
 				listened_at: body.event === 'media.scrobble' ? Math.floor(Date.now() / 1000) : undefined,
 				track_metadata: {
 					additional_info: {
-					  listening_from: 'Plex',
-					  media_player: 'Plex',
+					  listening_from: 'Youtube',
+					  media_player: 'Youtube',
 					  track_mbid: track_mbid
 					},
 					artist_name: body.Metadata.originalTitle ?? body.Metadata.grandparentTitle,
