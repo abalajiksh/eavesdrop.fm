@@ -65,13 +65,14 @@
 				permitted to send webhooks.
 			</li>
 			<li>Your Plex server is able to reach the internet.</li>
+			<li>Check the Cloudflare Pages deployment logs for any error messages.</li>
 		</ul>
 		<p>
 			If everything above looks okay and you still can't submit your listens, raise a Github issue
-			<a href="https://github.com/simonxciv/eavesdrop.fm">here</a> with as much information as
+			<a href="https://github.com/abalajiksh/eavesdrop.fm/issues">here</a> with as much information as
 			possible, or create a post in the
 			<a href="https://forums.plex.tv/c/testing/plex-labs/16">Plex Forums</a>
-			and tag me (<strong>@simonxciv</strong>).
+			and tag <strong>@abalajiksh</strong>.
 		</p>
 	</QandA>
 
@@ -82,20 +83,20 @@
 			ListenBrainz token are encrypted in transit, and not retained by us.
 		</p>
 		<p>
-			We collect minimal, anonymous statistics to keep track of hosting costs and associated
-			bandwidth limitations. You can see what we're capturing
+			We collect minimal, anonymous statistics using Cloudflare Web Analytics to monitor site performance
+			and usage. You can view our stats
 			<a href="/stats">here</a>.
 		</p>
 		<p>
-			Should you have concerns, the source code is open and auditable
-			<a href="https://github.com/simonxciv/eavesdrop.fm">here</a>.
+			Should you have concerns, the source code is open and auditable at
+			<a href="https://github.com/abalajiksh/eavesdrop.fm">github.com/abalajiksh/eavesdrop.fm</a>.
 		</p>
 	</QandA>
 
 	<QandA>
 		<slot slot="q">This FAQ sucks!</slot>
 		<p>
-			Why don't you <a href="https://github.com/simonxciv/eavesdrop.fm">build me a better one</a>?
+			Why don't you <a href="https://github.com/abalajiksh/eavesdrop.fm">build me a better one</a>?
 		</p>
 	</QandA>
 </SecondaryPage>
