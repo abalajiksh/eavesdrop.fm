@@ -9,12 +9,16 @@ import type { RequestHandler } from './$types';
 // ListenBrainz API base url.
 const LB_BASE_URL = 'https://api.listenbrainz.org/1';
 
-export const POST: RequestHandler = async ({ request }) => {
-	const body: Payload = await request
-		.formData()
-		.then((r) => JSON.parse(r.get('payload')?.toString() ?? ''));
+export const POST: RequestHandler = async ({ request, url }) => {
+	// Parse the multipart form data from Plex webhook
+	const formData = await request.formData();
+	const payloadString = formData.get('payload');
+	
+	if (!payloadString || typeof payloadString !== 'string') {
+		return new Response(null, { status: 400 });
+	}
 
-	const url = new URL(request.url);
+	const body: Payload = JSON.parse(payloadString);
 
 	const params: Params = {
 		token: url.searchParams.get('token') ?? '',
