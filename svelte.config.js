@@ -14,13 +14,7 @@ const config = {
 	],
 
 	kit: {
-		methodOverride: {
-			allowed: ['PUT']
-		},
-
-		adapter: adapter({
-			edge: true
-		})
+		adapter: adapter()
 	}
 };
 
